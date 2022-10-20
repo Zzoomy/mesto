@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./pages/index.css" rel="stylesheet">
+    <title>Место</title>
+  </head>
+  <body class="body">
+    <div class="page">
+      <header class="header">
+        <img class="header__logo" src="./images/logo.svg" alt="логотип проекта Место">
+      </header>
+      <main>
+        <section class="profile">
+          <img class="profile__avatar" src="./images/profile__avatar.svg" alt="Аватар профиля">
+          <div class="profile__info">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__editor" aria-label="Редактировать профиль"></button>
+            <p class="profile__description">Исследоваель океана</p>
+          </div>
+          <button type="button" class="profile__add-mesto" aria-label="Добавить место"></button>
+        </section>
+        <section class="cards">
+          <div class="cards__item">
+            <img src="https://images.unsplash.com/photo-1513326738677-b964603b136d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1049&q=80" class="cards__image" alt="">
+            <div class="cards__info">
+              <h2 class="cards__description">Кремль</h2>
+              <button type="button" class="cards__like" aria-label="Like"></button>
+            </div>
+          </div>
+          <div class="cards__item">
+            <img src="https://images.unsplash.com/photo-1554844344-c34ea04258c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80" class="cards__image" alt="">
+            <div class="cards__info">
+              <h2 class="cards__description">Эрмитаж</h2>
+              <button type="button" class="cards__like" aria-label="Like"></button>
+            </div>
+          </div>
+          <div class="cards__item">
+            <img src="https://images.unsplash.com/photo-1551845041-63e8e76836ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=778&q=80" class="cards__image" alt="">
+            <div class="cards__info">
+              <h2 class="cards__description">Байкал</h2>
+              <button type="button" class="cards__like" aria-label="Like"></button>
+            </div>
+          </div>
+          <div class="cards__item">
+            <img src="https://images.unsplash.com/photo-1615225150799-524453b31447?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" class="cards__image" alt="">
+            <div class="cards__info">
+              <h2 class="cards__description">Храм Христа Спасителя</h2>
+              <button type="button" class="cards__like" aria-label="Like"></button>
+            </div>
+          </div>
+          <div class="cards__item">
+            <img src="https://images.unsplash.com/photo-1613059093860-582e53c584c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" class="cards__image" alt="">
+            <div class="cards__info">
+              <h2 class="cards__description">Москва City</h2>
+              <button type="button" class="cards__like" aria-label="Like"></button>
+            </div>
+          </div>
+          <div class="cards__item">
+            <img src="https://images.unsplash.com/photo-1610197361600-33a3a5073cad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="cards__image" alt="">
+            <div class="cards__info">
+              <h2 class="cards__description">Петергоф</h2>
+              <button type="button" class="cards__like" aria-label="Like"></button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__descripton">© 2022 Mesto Russia</p>
+      </footer>
+    </div>
+    <div id="profile-popup" class="popup">
+      <div class="popup__container">
+        <button type="button" class="popup__close" aria-label="Закрыть форму"></button>
+        <h3 class="popup__name">Редактировать профиль</h3>
+        <form class="popup__form" name="profile">
+          <label>
+            <input type="text" value="Жак-Ив Кусто" class="popup__input popup__input_item_name" name="username" required placeholder="Ваше имя">
+          </label>
+          <label>
+            <input type="text" value="Исследователь океана" class="popup__input popup__input_item_description" name="descrption" required placeholder="Ваш род занятий">
+          </label>
+          <button type="submit" class="popup__submit" aria-label="Сохранить">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
