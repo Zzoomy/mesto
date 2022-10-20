@@ -5,7 +5,7 @@
   width: 32px;
   height: 32px;
   border: 0;
-  background: url('../../../images/icon/close.svg') no-repeat;
+  background: url('../../../images/icon/close.svg');
 }
 
 .popup__close:hover {

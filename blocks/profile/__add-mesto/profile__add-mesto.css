@@ -6,7 +6,7 @@
   border: 2px solid #fff;
   border-radius: 2px;
   transition: all 0.4s ease-in-out;
-  background: transparent url('../../../images/icon/add.svg') no-repeat center; 
+  background: transparent url('../../../images/icon/add.svg') no-repeat center;
 }
 
 .profile__add-mesto:hover {
