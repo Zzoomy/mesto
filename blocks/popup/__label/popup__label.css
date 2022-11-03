@@ -1,0 +1,7 @@
+.popup__label {
+  margin: 0 0 29px 0;
+}
+
+.popup__label:last-of-type {
+  margin: 0 0 48px 0;
+}

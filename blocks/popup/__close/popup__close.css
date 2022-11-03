@@ -6,6 +6,7 @@
   width: 33px;
   height: 33px;
   background: url('../../../images/icon/close_Icon.svg') no-repeat;
+  transition: all 0.4s ease-in-out;
 }
 
 .popup__close:hover {
