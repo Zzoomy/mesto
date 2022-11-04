@@ -52,7 +52,7 @@ const closePopup = function (popupName) {
     popupName.classList.remove('popup__opened');
 }
 
-const addCards = function (name, link) {
+const createCard = function (name, link) {
     const templateCardCopy = contentCardTemplate.querySelector('.cards__item').cloneNode(true);
     const cardsImage = templateCardCopy.querySelector('.cards__image');
     const cardDescription = templateCardCopy.querySelector('.cards__description');
@@ -83,14 +83,14 @@ const addCards = function (name, link) {
 
 const addNewCard = function (evt) {
     evt.preventDefault();
-    cardsArea.prepend(addCards(nameCardInput.value, linkCardInput.value));
+    cardsArea.prepend(createCard(nameCardInput.value, linkCardInput.value));
     evt.target.reset();
     closePopup(popupCards);
 }
 
 const renderInitialCards = function () {
     initialCards.forEach(function (card) {
-        cardsArea.append(addCards(card.name, card.link));
+        cardsArea.append(createCard(card.name, card.link));
     });
 }
 
