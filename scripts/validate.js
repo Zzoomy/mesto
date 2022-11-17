@@ -1,4 +1,4 @@
-const classListForm = {
+const validationSettings = {
    formSelector: '.popup__form',
    inputSelector: '.popup__input',
    submitButtonSelector: '.popup__submit',
@@ -21,8 +21,8 @@ const hideValidationError = function (formItem, inputItem, settings) {
     errorItem.textContent = '';
 }
 
-const checkInputValidity = function (formItem, inputItem, settings) {
-    if (inputItem.validity.valid === false) {
+const toggleInputErrorState = function (formItem, inputItem, settings) {
+    if (!inputItem.validity.valid) {
       showValidationError(formItem, inputItem, inputItem.validationMessage, settings);  
     } else {
       hideValidationError(formItem, inputItem, settings);
@@ -35,7 +35,7 @@ const setEventListeners = function (formItem, settings) {
     toggleButtonState(formItem, buttonItem, settings);
     inputList.forEach((inputItem) => {
         inputItem.addEventListener('input', function () {
-            checkInputValidity(formItem, inputItem, settings);
+            toggleInputErrorState(formItem, inputItem, settings);
             toggleButtonState(formItem, buttonItem, settings);
         });
     });
@@ -65,4 +65,4 @@ const toggleButtonState = function (formItem, buttonItem, settings) {
     }
 }
 
-enableValidationCheck(classListForm);
+enableValidationCheck(validationSettings);
