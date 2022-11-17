@@ -40,6 +40,7 @@ const popupSubmit = popupCards.querySelector('.popup__submit');
 
 const openPopup = function (popupName) {
     popupName.classList.add('popup__opened');
+    document.addEventListener('keydown', closePopupThroughEsc);
 }
 
 const openPopupProfile = function () {
@@ -50,6 +51,14 @@ const openPopupProfile = function () {
 
 const closePopup = function (popupName) {
     popupName.classList.remove('popup__opened');
+    document.removeEventListener('keydown', closePopupThroughEsc);
+}
+
+const closePopupThroughEsc = function (evt) {
+    if (evt.key === "Escape") {
+        const popupOpened = document.querySelector('.popup__opened');
+        closePopup(popupOpened);
+    }
 }
 
 const createCard = function (name, link) {
@@ -86,6 +95,7 @@ const addNewCard = function (evt) {
     cardsArea.prepend(createCard(nameCardInput.value, linkCardInput.value));
     evt.target.reset();
     closePopup(popupCards);
+    toggleButtonState(formCards, popupSubmit, classListForm);
 }
 
 const renderInitialCards = function () {
@@ -110,6 +120,14 @@ iconAddCard.addEventListener('click', () => openPopup(popupCards));
 iconCloseButtons.forEach((button) => {
     const popup = button.closest('.popup');
     button.addEventListener('click', () => closePopup(popup));
+});
+
+popupElements.forEach(popupElement => {
+    popupElement.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup__opened') || evt.target.classList.contains('popup__close')) {
+            closePopup(popupElement);
+        }
+    });
 });
 
 formProfile.addEventListener('submit', handleProfileFormSubmit);
