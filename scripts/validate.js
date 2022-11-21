@@ -49,20 +49,24 @@ const hasInvalidInput = function (inputList) {
 
 const enableValidationCheck = function (settings) {
     const formList = Array.from(document.querySelectorAll(settings.formSelector));
+  formList.forEach(function (formItem) {
+    formItem.addEventListener('submit', function (evt) {
+      evt.preventDefault();
+    });
+    const fieldsetList = Array.from(document.querySelectorAll(settings.formSelector));
     formList.forEach((formItem) => {
         setEventListeners(formItem, settings);
     });
+});
 }
 
 const toggleButtonState = function (formItem, buttonItem, settings) {
     const inputList = Array.from(formItem.querySelectorAll(settings.inputSelector));
     if (hasInvalidInput(inputList)) {
-        buttonItem.classList.add(settings.inactiveButtonClass);
-        buttonItem.setAttribute('disabled', true);
+      buttonItem.classList.add(settings.inactiveButtonClass);
     } else {
-        buttonItem.classList.remove(settings.inactiveButtonClass);
-        buttonItem.removeAttribute('disabled');
+      buttonItem.classList.remove(settings.inactiveButtonClass);
     }
-}
+  }
 
 enableValidationCheck(validationSettings);

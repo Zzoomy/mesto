@@ -36,7 +36,7 @@ const popupElements = document.querySelectorAll('.popup');
 
 const contentCardTemplate = document.querySelector('#card-template').content;
 
-const popupSubmit = popupCard.querySelector('.popup__submit');
+const popupCardSubmit = popupCard.querySelector('.popup__submit');
 
 const openPopup = function (popupName) {
     popupName.classList.add('popup__opened');
@@ -95,7 +95,7 @@ const addNewCard = function (evt) {
     cardsArea.prepend(createCard(nameCardInput.value, linkCardInput.value));
     evt.target.reset();
     closePopup(popupCard);
-    toggleButtonState(formCard, popupSubmit, validationSettings);
+    toggleButtonState(formCard, popupCardSubmit, validationSettings);
 }
 
 const renderInitialCards = function () {
