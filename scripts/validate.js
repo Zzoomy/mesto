@@ -48,25 +48,28 @@ const hasInvalidInput = function (inputList) {
 }
 
 const enableValidationCheck = function (settings) {
-    const formList = Array.from(document.querySelectorAll(settings.formSelector));
-  formList.forEach(function (formItem) {
-    formItem.addEventListener('submit', function (evt) {
-      evt.preventDefault();
-    });
-    const fieldsetList = Array.from(document.querySelectorAll(settings.formSelector));
-    formList.forEach((formItem) => {
-        setEventListeners(formItem, settings);
-    });
-});
+  const formList = Array.from(document.querySelectorAll(settings.formSelector));
+  formList.forEach((formItem) => {
+    setEventListeners(formItem, settings);
+  });
 }
 
 const toggleButtonState = function (formItem, buttonItem, settings) {
-    const inputList = Array.from(formItem.querySelectorAll(settings.inputSelector));
-    if (hasInvalidInput(inputList)) {
-      buttonItem.classList.add(settings.inactiveButtonClass);
-    } else {
-      buttonItem.classList.remove(settings.inactiveButtonClass);
-    }
+  const inputList = Array.from(formItem.querySelectorAll(settings.inputSelector));
+  if (hasInvalidInput(inputList)) {
+    disableButton(buttonItem, settings);
+  } else {
+    enableButton(buttonItem, settings);
+  }
+}
+const enableButton = (buttonItem, settings) => {
+  buttonItem.classList.remove(settings.inactiveButtonClass); 
+  buttonItem.disabled = false; 
+  }
+
+const disableButton = (buttonItem, settings) => {
+  buttonItem.classList.add(settings.inactiveButtonClass); 
+  buttonItem.disabled = true; 
   }
 
 enableValidationCheck(validationSettings);
