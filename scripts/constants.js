@@ -1,4 +1,4 @@
-const objectListCard = [
+const initialCards = [
     {
       name: 'Архыз',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -25,7 +25,7 @@ const objectListCard = [
     }
   ];
 
-  const classListForm = {
+  const validationSettings = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__submit',
@@ -34,4 +34,4 @@ const objectListCard = [
     errorClass: 'popup__input_type_visible',
   };
 
-  export {objectListCard, classListForm};
+  export {initialCards, validationSettings};

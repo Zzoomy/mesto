@@ -1,4 +1,4 @@
-import { objectListCard, classListForm } from "./objectList.js";
+import { initialCards, validationSettings } from "./constants.js";
 import { FormValidator } from "./FormValidator.js";
 import { Card } from "./Card.js";
 
@@ -24,11 +24,11 @@ const popupCard = document.querySelector('#cards-popup');
 
 const formCard = popupCard.querySelector('.popup__form');
 
-export const popupImageZoom = document.querySelector('#image-popup');
+const popupImageZoom = document.querySelector('#image-popup');
 
-export const popupImageZoomDescription = popupImageZoom.querySelector('.popup__description');
+const popupImageZoomDescription = popupImageZoom.querySelector('.popup__description');
 
-export const popupImageZoomImage = popupImageZoom.querySelector('.popup__image');
+const popupImageZoomImage = popupImageZoom.querySelector('.popup__image');
 
 const nameCardInput = popupCard.querySelector('#place-name-input');
 
@@ -38,7 +38,7 @@ const cardsArea = document.querySelector('.cards');
 
 const popupElements = document.querySelectorAll('.popup');
 
-export const openPopup = function (popupName) {
+const openPopup = function (popupName) {
     popupName.classList.add('popup__opened');
     document.addEventListener('keydown', closePopupThroughEsc);
 }
@@ -47,6 +47,13 @@ const openPopupProfile = function () {
     nameInput.value = profileName.textContent;
     descriptionInput.value = profileDescription.textContent;
     openPopup(popupProfile);
+}
+
+export const handleOpenCard = function (name, image) {
+    popupImageZoomDescription.textContent = name;
+    popupImageZoomImage.src = image;
+    popupImageZoomImage.alt = name;
+    openPopup(popupImageZoom);
 }
 
 const closePopup = function (popupName) {
@@ -78,7 +85,7 @@ const addNewCard = function (evt) {
 }
 
 const renderInitialCards = function () {
-    objectListCard.forEach(function (card) {
+    initialCards.forEach(function (card) {
         cardsArea.append(renderCard(card, '#card-template'));
     });
 }
@@ -92,10 +99,10 @@ const handleProfileFormSubmit = function (evt) {
     closePopup(popupProfile);
 }
 
-const addCardValidate = new FormValidator(classListForm, popupCard);
+const addCardValidate = new FormValidator(validationSettings, popupCard);
 addCardValidate.enableValidationCheck();
 
-const editProfileValidate = new FormValidator(classListForm, formProfile);
+const editProfileValidate = new FormValidator(validationSettings, formProfile);
 editProfileValidate.enableValidationCheck();
 
 profileEditingIcon.addEventListener('click', openPopupProfile);
