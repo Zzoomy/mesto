@@ -1,15 +1,14 @@
 import { handleOpenCard } from "./index.js";
-
+// Что то у меня не получается передать ее в конструктор, не понимаю почему не работает
 class Card {
     constructor(object, templateElem,) {
         this._name = object.name;
         this._image = object.link;
         this._template = templateElem;
-        this._elementCard = document.querySelector(this._template).content.querySelector('.cards__item').cloneNode(true);
-        this._elementImage = this._elementCard.querySelector('.cards__image');
-        this._elementName = this._elementCard.querySelector('.cards__description');
-        this._likeIcon = this._elementCard.querySelector('.cards__like');
-        this._deleteIcon = this._elementCard.querySelector('.cards__delete');
+    }
+
+    _createCard() {
+        return document.querySelector(this._template).content.querySelector('.cards__item').cloneNode(true);
     }
 
     _likeCard = (event) => {
@@ -17,17 +16,22 @@ class Card {
     }
 
     _deleteCard() {
-        this._elementCard.remove();
+        this._cardElement.remove();
     }
 
     makeCard() {
+        this._cardElement = this._createCard();
+        this._elementImage = this._cardElement.querySelector('.cards__image');
+        this._elementName = this._cardElement.querySelector('.cards__description');
+        this._likeIcon = this._cardElement.querySelector('.cards__like');
+        this._deleteIcon = this._cardElement.querySelector('.cards__delete');
         this._elementName.textContent = this._name;
         this._elementImage.src = this._image;
         this._elementImage.alt = this._name;
     
         this._addEventHandlers();
 
-        return this._elementCard;
+        return this._cardElement;
     }
 
     _addEventHandlers = () => {
