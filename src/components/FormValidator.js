@@ -22,7 +22,7 @@ class FormValidator {
   }
 
   _checkInputValidity(inputItem) {
-    if (inputItem.validity.valid === false) {
+    if (!inputItem.validity.valid) {
       this._showValidationError(inputItem, inputItem.validationMessage);
     } else {
       this._hideValidationError(inputItem);

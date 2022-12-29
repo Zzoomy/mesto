@@ -69,7 +69,7 @@ profileEditingIcon.addEventListener('click', function  () {
     popupEditeProfile.open();
     const actualUserInfo = userInfo.getUserInfo();
     nameInput.setAttribute('value', actualUserInfo.username);
-    descriptionInput.setAttribute('valeu', actualUserInfo.description);
+    descriptionInput.setAttribute('value', actualUserInfo.description);
 });
 
 iconAddCard.addEventListener('click', function () {
