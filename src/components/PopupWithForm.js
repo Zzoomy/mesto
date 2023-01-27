@@ -1,11 +1,13 @@
 import { Popup } from "./Popup.js";
 
 class PopupWithForm extends Popup {
-    constructor(popupSelector, { callbackFormSubmit}) {
+    constructor(popupSelector, { callbackFormSubmit }) {
         super(popupSelector);
         this._callbackFormSubmit = callbackFormSubmit;
         this._popupFormItem = this._popupItem.querySelector('.popup__form');
         this._inputList = Array.from(this._popupFormItem.querySelectorAll('.popup__input'));
+        this._sendButton = this._popupItem.querySelector('.popup__submit');
+        this._sendButtonText = this._sendButton.textContent;
 }
 
 _getInputValues() {
@@ -23,6 +25,14 @@ _getInputValues() {
       this._callbackFormSubmit(this._getInputValues());
     });
   }
+  
+  putSavingProcessText() {
+    this._sendButton.textContent = 'Сохранение...';
+  }
+  
+  returnSavingProcessText() {
+    this._sendButton.textContent = this._sendButtonText;
+  }
 
   close() {
    super.close();
@@ -30,4 +40,4 @@ _getInputValues() {
   }
 }
 
-export {PopupWithForm};
+export { PopupWithForm };
